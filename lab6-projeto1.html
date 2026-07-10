@@ -1,0 +1,175 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=line-smooth&code=pVXbTttAEH3PV8wDIolEja-5mBCJIvHYi4T6UIRgYy_B1PZG6zUijfwx_Y2-8mOdXa-DI-xVJd7suZ2Zc2bsmAgC57AbALi244XqCUAwQdK76LF8JiG4M9uyT5Q9TkhRm-8ykhR3QZaF4PjdTseW3jn6KhmA9f3O-r7tWxNT_ZmpvhO0AIJOAG82saYmgB709wNMugmaB2aCesD1AHYLYNoN4DhWYAJwTABtgmad9acT3-ohWdV3jQq4Tgtg3i3xfGrNTQA902mGJm8Art0JEMwdyzMx1IOuAVoTuE7PDs3MEvw_gNsJMPdmxivwjEvk-i2A7jP2J8FHzqytQfcde9OZ5ZpENm6p056g-44D16yB23OEGsBrAXQfsuc75jU1AyiRB9XZYBCxvBAQk5gVV0kquHzAz-zX1RONhPWLbouR_PKOMcF6wADKRyOSszGcL-FLma3wXb0uz9VXB46PD8wLaXYDlc5pXEZ0NGKrpxNoatSzoekGLbeILNHU85nycCpKnssA-V6dwK4a79vGsPfNtifB0DrymaSM0-JacogZMtHKyOZtlsM81YDVYlxiso1IWK7_QSIRKd1LQ19ECMMfLC0zCjEFlQMkKrMyJTGBDeMSE0aKI1JzAp_givymOfovCc_J698VQds12VDOXv_g47fPw2YTXi5ekmKPt90g9jAigq4Z3w5rrXOSSetFzrRBUhmqWZsq23YVHf9dxLpfmkGW6VwNgbyVdN-EYCwVyWbfBk_Wa8oxjGBZnfjAeEYE7kkID2UeKcpGG8JJVox1HsBePmSz9t3Yt5ZsqFa9iVCyHcSohpogvRz3i0Jwlq-XOHoIRzusWy1OtW2x4qfLWncU5rI-n6OdqlzhvPd1saqZUZL2kzG8khvlaFrWhCR5kcRUzwpQCMJRen1tAKim_E_KH2Vd81Z6CsoTirwfVqzlaW9mU0VjpUneQsoYE48hkl7SxhYxzMXAlRZJQ-Jh_wM&enc=deflate
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    data = {
+  2013: {
+    total_chuva: 280.0,
+    dias_chuva_mais_5mm: 14,
+    dias_chuva_mais_10mm: 9
+  },
+  2014: {
+    total_chuva: 404.6,
+    dias_chuva_mais_5mm: 18,
+    dias_chuva_mais_10mm: 15
+  },
+  2015: {
+    total_chuva: 386.7,
+    dias_chuva_mais_5mm: 16,
+    dias_chuva_mais_10mm: 9
+  },
+  2016: {
+    total_chuva: 295.0,
+    dias_chuva_mais_5mm: 17,
+    dias_chuva_mais_10mm: 10
+  },
+  2017: {
+    total_chuva: 211.5,
+    dias_chuva_mais_5mm: 11,
+    dias_chuva_mais_10mm: 5
+  },
+  2018: {
+    total_chuva: 764.8,
+    dias_chuva_mais_5mm: 28,
+    dias_chuva_mais_10mm: 21
+  },
+  2019: {
+    total_chuva: 497.9,
+    dias_chuva_mais_5mm: 25,
+    dias_chuva_mais_10mm: 16
+  },
+  2020: {
+    total_chuva: 591.3,
+    dias_chuva_mais_5mm: 19,
+    dias_chuva_mais_10mm: 11
+  },
+  2021: {
+    total_chuva: 388.5,
+    dias_chuva_mais_5mm: 19,
+    dias_chuva_mais_10mm: 11
+  },
+  2022: {
+    total_chuva: 938.6,
+    dias_chuva_mais_5mm: 37,
+    dias_chuva_mais_10mm: 24
+  },
+  2023: {
+    total_chuva: 465.6,
+    dias_chuva_mais_5mm: 18,
+    dias_chuva_mais_10mm: 16
+  },
+  2024: {
+    total_chuva: 378.2,
+    dias_chuva_mais_5mm: 21,
+    dias_chuva_mais_10mm: 14
+  },
+  2025: {
+    total_chuva: 528.5,
+    dias_chuva_mais_5mm: 20,
+    dias_chuva_mais_10mm: 13
+  },
+  2026: {
+    total_chuva: 341.9,
+    dias_chuva_mais_5mm: 20,
+    dias_chuva_mais_10mm: 11
+  }
+};
+
+const dadosFiltrados = Object.keys(data)
+  .filter((ano) => Number(ano) >= 2016 && Number(ano) <= 2025)
+  .reduce((obj, ano) => {
+    obj[ano] = data[ano];
+    return obj;
+  }, {});
+
+const anos = Object.keys(dadosFiltrados);
+const valoresTotal = anos.map((ano) => dadosFiltrados[ano].total_chuva);
+
+option = {
+  title: {
+    text: 'Volume de chuva acumulada por ano (2016 a 2025) - Fazenda Carnaúba - Taperoá - PB'
+  },
+  xAxis: {
+    type: 'category',
+    name: 'Ano',
+    data: anos
+  },
+  yAxis: {
+    name: 'Qtd chuva em mm',
+    type: 'value'
+  },
+  tooltip: {
+    trigger: 'axis',
+    formatter: function (params) {
+      const ano = params[0].name;
+      const valor = params[0].value;
+      return `<strong>Ano: ${ano}</strong><br/>Total de Chuva: ${valor} mm`;
+    }
+  },
+  dataZoom: [
+    {
+      type: 'inside',
+      start: 0,
+      end: 100
+    }
+  ],
+  series: [
+    {
+      data: valoresTotal,
+      type: 'line',
+      smooth: true,
+      color: 'blue'
+    }
+  ]
+};
+
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
